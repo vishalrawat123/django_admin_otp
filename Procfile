@@ -1,0 +1,1 @@
+web: gunircorn admin_otp.wsgi
