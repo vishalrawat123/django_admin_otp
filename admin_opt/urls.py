@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from otp_app.admin import admin_site
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin_site.urls),
-    path('master-admin/', admin.site.urls),  # no need for OTP
-]
+                  path('admin/', admin_site.urls),
+                  path('master-admin/', admin.site.urls),  # no need for OTP
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
